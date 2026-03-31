@@ -2,14 +2,15 @@ import { z } from "zod";
 import { DellinClient } from "../client.js";
 import type { DellinCity } from "../types.js";
 
-const client = new DellinClient();
+let client: DellinClient;
+function getClient() { return client ??= new DellinClient(); }
 
 export const getCitiesSchema = z.object({
   query: z.string().describe("Название города или его часть для поиска"),
 });
 
 export async function handleGetCities(params: z.infer<typeof getCitiesSchema>): Promise<string> {
-  const result = (await client.post("/places", { q: params.query })) as {
+  const result = (await getClient().post("/places", { q: params.query })) as {
     cities?: DellinCity[];
   };
 

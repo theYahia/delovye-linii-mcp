@@ -3,19 +3,21 @@ const TIMEOUT = 15_000;
 
 export class DellinClient {
   private apiKey: string;
+  private baseUrl: string;
 
-  constructor() {
-    this.apiKey = process.env.DELLIN_API_KEY ?? "";
+  constructor(apiKey?: string, baseUrl?: string) {
+    this.apiKey = apiKey ?? process.env.DELLIN_API_KEY ?? "";
+    this.baseUrl = baseUrl ?? BASE_URL;
     if (!this.apiKey) {
       throw new Error(
         "Переменная окружения DELLIN_API_KEY обязательна. " +
-        "Получите ключ API в личном кабинете Деловых Линий: https://dev.dellin.ru/"
+        "Получите ключ API в личном кабинете Деловых Линий: https://dev.dellin.ru/",
       );
     }
   }
 
   async post(path: string, body?: Record<string, unknown>): Promise<unknown> {
-    const url = `${BASE_URL}${path}.json`;
+    const url = `${this.baseUrl}${path}.json`;
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), TIMEOUT);
 
@@ -40,9 +42,9 @@ export class DellinClient {
       if (data && typeof data === "object" && "errors" in data) {
         const errData = data as { errors: Array<{ title: string; detail?: string }> };
         if (errData.errors && errData.errors.length > 0) {
-          const msgs = errData.errors.map((e: { title: string; detail?: string }) =>
-            e.detail ? `${e.title}: ${e.detail}` : e.title
-          ).join("; ");
+          const msgs = errData.errors
+            .map((e: { title: string; detail?: string }) => (e.detail ? `${e.title}: ${e.detail}` : e.title))
+            .join("; ");
           throw new Error(`Деловые Линии: ${msgs}`);
         }
       }
