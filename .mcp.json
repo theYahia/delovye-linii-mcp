@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "dellin": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@theyahia/delovye-linii-mcp"
+      ],
+      "env": {
+        "DELLIN_API_KEY": "YOUR_API_KEY"
+      }
+    }
+  }
+}
