@@ -6,7 +6,7 @@ import { calculateSchema, handleCalculate } from "./tools/calculate.js";
 import { getCitiesSchema, handleGetCities } from "./tools/cities.js";
 import { trackSchema, handleTrack } from "./tools/tracking.js";
 
-const server = new McpServer({ name: "delovye-linii-mcp", version: "1.0.0" });
+const server = new McpServer({ name: "delovye-linii-mcp", version: "1.0.1" });
 
 server.tool("calculate", "Расчёт стоимости и сроков доставки Деловыми Линиями.", calculateSchema.shape,
   async (params) => ({ content: [{ type: "text", text: await handleCalculate(params) }] }));
