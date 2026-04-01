@@ -2,7 +2,8 @@ import { z } from "zod";
 import { DellinClient } from "../client.js";
 import type { DellinCalcResult } from "../types.js";
 
-const client = new DellinClient();
+let client: DellinClient;
+function getClient() { return client ??= new DellinClient(); }
 
 export const calculateSchema = z.object({
   derival_city_id: z.number().describe("ID города отправления (из get_cities)"),
@@ -23,7 +24,7 @@ export async function handleCalculate(params: z.infer<typeof calculateSchema>): 
   if (params.width) cargo.width = params.width;
   if (params.height) cargo.height = params.height;
 
-  const result = (await client.post("/calculator", {
+  const result = (await getClient().post("/calculator", {
     delivery: {
       derival: { city: { cityID: params.derival_city_id } },
       arrival: { city: { cityID: params.arrival_city_id } },

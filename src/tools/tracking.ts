@@ -2,14 +2,15 @@ import { z } from "zod";
 import { DellinClient } from "../client.js";
 import type { DellinTrackingResult } from "../types.js";
 
-const client = new DellinClient();
+let client: DellinClient;
+function getClient() { return client ??= new DellinClient(); }
 
 export const trackSchema = z.object({
   doc_id: z.string().describe("Номер накладной или заказа Деловых Линий"),
 });
 
 export async function handleTrack(params: z.infer<typeof trackSchema>): Promise<string> {
-  const result = (await client.post("/orders/statuses", {
+  const result = (await getClient().post("/orders/statuses", {
     docIds: [params.doc_id],
   })) as DellinTrackingResult;
 
