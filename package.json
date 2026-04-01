@@ -1,7 +1,7 @@
 {
   "name": "@theyahia/delovye-linii-mcp",
-  "version": "1.0.1",
-  "description": "MCP server for Delovye Linii (Деловые Линии) delivery API — tariff calculation, city search, tracking. 3 tools.",
+  "version": "1.1.1",
+  "description": "MCP server for Delovye Linii — freight delivery, tariff calculation (Russia)",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -44,7 +44,9 @@
     "delivery",
     "shipping",
     "logistics",
-    "tracking"
+    "tracking",
+    "api",
+    "typescript"
   ],
   "license": "MIT",
   "repository": {
