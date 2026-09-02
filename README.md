@@ -1,6 +1,6 @@
-# delovye-linii-mcp
+# Деловые Линии MCP — расчёт грузоперевозки и отслеживание через нейросеть
 
-MCP-сервер для API Деловых Линий (Dellin) — расчёт стоимости, справочник городов и терминалов, создание заказов, отслеживание грузов.
+Если вы искали, как посчитать стоимость и срок перевозки Деловыми Линиями обычным вопросом, найти терминал в нужном городе или отследить груз по номеру накладной без личного кабинета — это оно. 6 инструментов поверх API Dellin: расчёт стоимости, справочник городов и терминалов, создание заказов и отслеживание грузов.
 
 [![npm](https://img.shields.io/npm/v/@theyahia/delovye-linii-mcp)](https://www.npmjs.com/package/@theyahia/delovye-linii-mcp)
 [![CI](https://github.com/theYahia/delovye-linii-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/theYahia/delovye-linii-mcp/actions)
@@ -81,3 +81,4 @@ npm run start:http   # HTTP-сервер
 ## Лицензия
 
 MIT
+
