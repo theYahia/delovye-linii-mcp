@@ -1,3 +1,17 @@
+> ## 🗄 Репозиторий заархивирован
+>
+> Разработка переехала в **[theYahia/WWmcp](https://github.com/theYahia/WWmcp)** — монорепозиторий MCP-серверов для незападных API: СНГ, MENA, Африка, LATAM, Юго-Восточная Азия. Общее ядро `@theyahia/mcp-core`, единый CI, единый релизный конвейер.
+>
+> Актуальная версия того, что лежало здесь: [`servers/delovye-linii/`](https://github.com/theYahia/WWmcp/tree/main/servers/delovye-linii)
+>
+> Пакет в npm прежний — [`@theyahia/delovye-linii-mcp`](https://www.npmjs.com/package/@theyahia/delovye-linii-mcp), ставится и работает как раньше.
+> Здесь больше ничего не обновляется. Задачи и pull request'ы — в WWmcp.
+>
+> **Archived — development moved to [theYahia/WWmcp](https://github.com/theYahia/WWmcp),** a monorepo of MCP servers for non-Western APIs.
+> The current version of this package now lives at [`servers/delovye-linii/`](https://github.com/theYahia/WWmcp/tree/main/servers/delovye-linii).
+> The npm package [`@theyahia/delovye-linii-mcp`](https://www.npmjs.com/package/@theyahia/delovye-linii-mcp) is unchanged.
+> Please open issues and pull requests there.
+
 # Деловые Линии MCP — расчёт грузоперевозки и отслеживание через нейросеть
 
 Если вы искали, как посчитать стоимость и срок перевозки Деловыми Линиями обычным вопросом, найти терминал в нужном городе или отследить груз по номеру накладной без личного кабинета — это оно. 6 инструментов поверх API Dellin: расчёт стоимости, справочник городов и терминалов, создание заказов и отслеживание грузов.
