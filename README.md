@@ -82,3 +82,6 @@ npm run start:http   # HTTP-сервер
 
 MIT
 
+---
+
+Telegram: [@vhodvai](https://t.me/vhodvai)
